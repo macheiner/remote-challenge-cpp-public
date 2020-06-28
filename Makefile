@@ -30,11 +30,13 @@ $(OBJ_DIR_DBG)/%.o: %.cpp
 
 $(APP_DIR)/$(TARGET)-release: $(OBJECTS_REL)
 	@mkdir -p $(@D)
-	$(CXX) $(CXXFLAGS) $(INCLUDE) -o $(APP_DIR)/$(TARGET)-release $(OBJECTS_REL) $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -o $(APP_DIR)/$(TARGET)-task1-release $(OBJ_DIR_REL)/src/task1.o $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -o $(APP_DIR)/$(TARGET)-task2-release $(OBJ_DIR_REL)/src/task2.o $(LDFLAGS)
 
 $(APP_DIR)/$(TARGET)-debug: $(OBJECTS_DBG)
 	@mkdir -p $(@D)
-	$(CXX) $(CXXFLAGS) $(INCLUDE) -o $(APP_DIR)/$(TARGET)-debug $(OBJECTS_DBG) $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -o $(APP_DIR)/$(TARGET)-task1-debug $(OBJ_DIR_DBG)/src/task1.o $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -o $(APP_DIR)/$(TARGET)-task2-debug $(OBJ_DIR_DBG)/src/task2.o $(LDFLAGS)
 
 .PHONY: all build clean debug release
 

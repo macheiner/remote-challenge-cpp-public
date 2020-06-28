@@ -3,7 +3,6 @@
 #include <vector>
 
 #include "input_output.h"
-#include "challenge_task1.h"
 #include "challenge_task2.h"
 
 
@@ -19,12 +18,7 @@ int main(int argc, char** argv) {
 	chal::Points input_polygon = chal::read_polygon_from_json(input_file);
 
 	chal::Points result_polygon;
-	if (input_file.find("Task_1") != std::string::npos)
-		result_polygon = chal::challenge_task_1(input_polygon);
-	else if (input_file.find("Task_2") != std::string::npos)
-		result_polygon = chal::challenge_task_2(input_polygon);
-	else
-		result_polygon = chal::challenge_task_1(input_polygon);
+	result_polygon = chal::challenge_task_2(input_polygon);
 
 	chal::write_point_vector_to_json(result_polygon, output_file);
 }
